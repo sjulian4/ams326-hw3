@@ -79,14 +79,14 @@ print("The optimal set of parameters is: x = ", x0, " y = ", y0, " a = ", a0)
 print("The maximum area cut out is: ", -E(x0,y0,a0))
 print("Time taken: ", time2 - time1, " seconds")
 
-print(-E(0.1,0,0))
+print(-E(0.01,0,0))
 print(-E(0.0,0.0,0.0))
 
 # Output after first run replacing the random generated T with the calculated T from problem_2_calculations.py:
 # The optimal set of parameters is: x =  -0.012865667563016294  y =  0.7265934431767387  a =  -0.07714424868270725
 # The maximum area cut out  is:  0.5840878789293876
 # Time taken:  1619.6811063289642  seconds
-# 0.24312098904153265
+# (-E(0.1,0,0)) 0.24312098904153265
 # 0.24168909780962894
 # Now, I will replace the randomly generated x y and a initial values with those found above.
 
@@ -94,9 +94,13 @@ print(-E(0.0,0.0,0.0))
 # The optimal set of parameters is: x =  0.17078966171868137  y =  0.6942535877704037  a =  0.20424918479565352
 # The maximum area cut out  is:  0.5773880421776512
 # Time taken:  1619.467227935791  seconds
-# 0.24312098904153265
+# (-E(0.1,0,0)) 0.24312098904153265
 # 0.24168909780962894
 # This max area is smaller. 
 
 # Trying more iterations:
-
+# The optimal set of parameters is: x =  0.010177522444759297  y =  0.7283783263799508  a =  -0.011843790959369164
+# The maximum area cut out is:  0.5871637934275463
+# Time taken:  1760.056872844696  seconds
+# 0.24170677547915861
+# 0.24168909780962894

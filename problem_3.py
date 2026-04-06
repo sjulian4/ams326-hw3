@@ -26,6 +26,8 @@
 
 
 # todo delete: difference is a is 99.99 
+from sqlite3 import Time
+
 import numpy as np
 import matplotlib.pyplot as plt
 import time
@@ -223,3 +225,10 @@ plt.clf()
 time2 = time.time()
 print("Time taken for RK4 method at h = ", str(abs(h)), ": ", time2 - time1, " seconds")
 
+# Time taken for forward Euler method at h =  0.01 :  0.24622011184692383  seconds
+# Time taken for backward Euler method at h =  0.01 :  0.32252979278564453  seconds
+# Time taken for explicit midpoint method at h =  0.01 :  0.0415191650390625  seconds
+# Time taken for implicit midpoint method at h =  0.01 :  0.17449331283569336  seconds
+# Time taken for Heun's method at h =  0.01 :  0.046272993087768555  seconds
+# Time taken for RK3 method at h =  0.01 :  0.04683709144592285  seconds
+# Time taken for RK4 method at h =  0.01 :  0.05189013481140137  seconds
