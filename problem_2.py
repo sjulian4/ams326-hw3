@@ -31,7 +31,7 @@ def E(x,y, a): # a function for the area cut by the cutting rectangle
     # divide cutter into a grid of many small rectangles and see if
     # the center of each square is inside the rose
     center = np.array([x,y])
-    vertex1 = -0.5*nl + (-0.5/sqrt2)*ns + center
+    vertex1 = -0.5*nl + (0.5/sqrt2)*ns + center
 
     num_points = 200
     nl_range = np.linspace(0.0, 1.0, num_points + 1)
@@ -51,9 +51,9 @@ def E(x,y, a): # a function for the area cut by the cutting rectangle
 # y0 = np.random.uniform(0.0, 1.0)
 # a0 = np.random.uniform(0.0, np.pi/2) # initial angle of rotation of cutter
 
-x0 = -0.012865667563016294 # initial center of rect
-y0 = 0.7265934431767387
-a0 = -0.07714424868270725 # initial angle of rotation of cutter
+x0 = 0.018303822547195328 # initial center of rect
+y0 = -0.11030277308917726
+a0 = -0.01408252865589001 # initial angle of rotation of cutter
 
 T = 0.003591041788252627 # Temperature, from problem_2_calculations.py
 
@@ -83,24 +83,21 @@ print(-E(0.01,0,0))
 print(-E(0.0,0.0,0.0))
 
 # Output after first run replacing the random generated T with the calculated T from problem_2_calculations.py:
-# The optimal set of parameters is: x =  -0.012865667563016294  y =  0.7265934431767387  a =  -0.07714424868270725
-# The maximum area cut out  is:  0.5840878789293876
-# Time taken:  1619.6811063289642  seconds
-# (-E(0.1,0,0)) 0.24312098904153265
-# 0.24168909780962894
-# Now, I will replace the randomly generated x y and a initial values with those found above.
+# The optimal set of parameters is: x =  0.018303822547195328  y =  -0.11030277308917726  a =  -0.01408252865589001
+# The maximum area cut out is:  0.5776708848901255
+# Time taken:  2033.370203256607  seconds
+# 0.5881007099126176
+# 0.5882421312688548
 
-# After running with those replacements: 
-# The optimal set of parameters is: x =  0.17078966171868137  y =  0.6942535877704037  a =  0.20424918479565352
-# The maximum area cut out  is:  0.5773880421776512
-# Time taken:  1619.467227935791  seconds
-# (-E(0.1,0,0)) 0.24312098904153265
-# 0.24168909780962894
-# This max area is smaller. 
+# The optimal set of parameters is: x =  -0.016095045330285537  y =  -0.03801779781818205  a =  -0.029086575309461262
+# The maximum area cut out is:  0.5861915216034157
+# Time taken:  1783.3768517971039  seconds
+# 0.5881007099126176
+# 0.5882421312688548
 
 # Trying more iterations:
-# The optimal set of parameters is: x =  0.010177522444759297  y =  0.7283783263799508  a =  -0.011843790959369164
-# The maximum area cut out is:  0.5871637934275463
-# Time taken:  1760.056872844696  seconds
-# 0.24170677547915861
-# 0.24168909780962894
+# The optimal set of parameters is: x =  -0.03289694339885462  y =  0.09681644212730176  a =  0.06195233226509867
+# The maximum area cut out is:  0.5780421159502481
+# Time taken:  1801.4392609596252  seconds
+# 0.5881007099126176
+# 0.5882421312688548

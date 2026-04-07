@@ -42,7 +42,6 @@ for d in [1/10, 2/10, 3/10, 4/10, 5/10, 6/10, 7/10, 8/10, 9/10, 10/10, 15/10, 20
 
     
     for n in range(n_tot):
-        x_0 = np.random.uniform(0.0, 4.0) # random x
         y_0 = np.random.uniform(0.0, 4.0) # random y
 
         # (x-x0)^2 + (y-y0)^2 <= (d/2)^2
