@@ -33,71 +33,25 @@ prob_arr4 = np.zeros(13)
 counter = 0
 d_arr = np.array([1/10, 2/10, 3/10, 4/10, 5/10, 6/10, 7/10, 8/10, 9/10, 10/10, 15/10, 20/10, 30/10])
 
-for d in [1/10, 2/10, 3/10, 4/10, 5/10, 6/10, 7/10, 8/10, 9/10, 10/10, 15/10, 20/10, 30/10]: # loop over diameters
-    temp_prob1 = 0.0
-    temp_prob2 = 0.0
-    temp_prob3 = 0.0
-    temp_prob4 = 0.0
+for d in d_arr: # loop over diameters
+   
+    r = d / 2.0
 
-
+    y_centers = np.random.uniform(0.0, 4.0, n_tot)
+        
+    crosses = np.zeros(n_tot)
     
-    for n in range(n_tot):
-        y_0 = np.random.uniform(0.0, 4.0) # random y
-
-        # (x-x0)^2 + (y-y0)^2 <= (d/2)^2
-        if d < 1.0:
-            for y in [0.0, 1.0, 2.0, 3.0, 4.0]: # see if disc intersects each line with the discrimiant
-                if (d/2.0)**2 - (y-y_0)**2 >= 0: 
-                    temp_prob1 += 1.0
-
-        if d >= 1.0 and d < 2.0:
-            crosses = 0
-            for y in [0.0, 1.0, 2.0, 3.0, 4.0]: # see if disc intersects each line with the discrimiant
-                if (d/2.0)**2 - (y-y_0)**2 >= 0: 
-                    crosses += 1.0
-            if crosses == 1.0:
-                temp_prob1 += 1.0
-            if crosses == 2.0:
-                temp_prob2 += 1.0
-                temp_prob1 += 1.0
-        if d>=2.0 and d < 3.0:
-            crosses = 0
-            for y in [0.0, 1.0, 2.0, 3.0, 4.0]: # see if disc intersects each line with the discrimiant
-                if (d/2.0)**2 - (y-y_0)**2 >= 0: 
-                    crosses += 1.0
-            if crosses == 1.0:
-                temp_prob1 += 1.0
-            if crosses == 2.0:
-                temp_prob2 += 1.0
-                temp_prob1 += 1.0
-            if crosses == 3.0:
-                temp_prob3 += 1.0
-                temp_prob2 += 1.0
-                temp_prob1 += 1.0
-        if d >= 3.0:
-            crosses = 0
-            for y in [0.0, 1.0, 2.0, 3.0, 4.0]: # see if disc intersects each line with the discrimiant
-                if (d/2.0)**2 - (y-y_0)**2 >= 0: 
-                    crosses += 1.0
-            if crosses == 1.0:
-                temp_prob1 += 1.0
-            if crosses == 2.0:
-                temp_prob2 += 1.0
-                temp_prob1 += 1.0
-            if crosses == 3.0:
-                temp_prob3 += 1.0
-                temp_prob2 += 1.0
-                temp_prob1 += 1.0
-            if crosses == 4.0:
-                temp_prob4 += 1.0
-                temp_prob3 += 1.0
-                temp_prob2 += 1.0
-                temp_prob1 += 1.0
-
-    prob_arr1[counter] = temp_prob1/n_tot
-    prob_arr2[counter] = temp_prob2/n_tot
-    prob_arr3[counter] = temp_prob3/n_tot
-    prob_arr4[counter] = temp_prob4/n_tot
+    # check every line against all 4.4 million centers simultaneously
+    for y_line in [-1.0, 0.0, 1.0, 2.0, 3.0, 4.0, 5.0]:
+        # This adds 1 to the 'crosses' count for any disc that intersects this line
+        crosses += (r**2 - (y_line - y_centers)**2 >= 0)
+        
+    # 4. Count how many tosses crossed at least 1, 2, 3, or 4 lines
+    prob_arr1[counter] = np.sum(crosses >= 1) / n_tot
+    prob_arr2[counter] = np.sum(crosses >= 2) / n_tot
+    prob_arr3[counter] = np.sum(crosses >= 3) / n_tot
+    prob_arr4[counter] = np.sum(crosses >= 4) / n_tot
+    
     counter += 1
 
 time2 = time.time()
